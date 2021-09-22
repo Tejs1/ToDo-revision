@@ -10,13 +10,26 @@ todobutton.addEventListener("click", todo);
 function todo(event) {
   //prevent form from submitting
   event.preventDefault();
-  console.log("hiii");
 
   //createing todo
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   const newTodo = document.createElement("li");
-  newTodo.innerText = "heuyyy";
+  newTodo.innerText = todoinput.value;
+  todoinput.value = "";
   newTodo.classList.add("todo-item");
-  console.log(newTodo);
+  todoDiv.appendChild(newTodo);
+  //Completed Button
+  const completedButton = document.createElement("button");
+  completedButton.innerHTML = '<i class="fas fa-check"></i>';
+  completedButton.classList.add("complete-btn");
+  todoDiv.appendChild(completedButton);
+
+  //Trash Button
+  const trashButton = document.createElement("button");
+  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+  trashButton.classList.add("complete-btn");
+  todoDiv.appendChild(trashButton);
+  //Append Child
+  todolist.appendChild(todoDiv);
 }
